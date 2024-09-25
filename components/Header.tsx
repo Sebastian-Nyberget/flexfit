@@ -37,7 +37,7 @@ export default function Header() {
                         <Link href="/medlemskap" className="text-black">Medlemskap</Link>
                         <Link href="/booking" className="text-black">Booking</Link>
                     </li>
-                    <li className="flex gap-5 md:hidden">
+                    <li className="flex gap-5">
                         <div className="items-center justify-center flex w-10 border-2 border-gray-200 rounded-xl hover:bg-gray-200 hover:bg-opacity-40">
                             <GoSun color="black" className="text-2xl" />
                         </div>
