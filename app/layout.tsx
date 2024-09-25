@@ -6,6 +6,8 @@ import type { Metadata } from 'next'
 import { Inter, Righteous } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Header'
+import Hero from '@/components/Hero'
+import News from '@/components/News'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +27,8 @@ export default function RootLayout({
         <body className={inter.className}>
           <ClerkLoaded>
             <Navigation />
+            <Hero />
+            <News />
             {children}
           </ClerkLoaded>
         </body>
