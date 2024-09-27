@@ -8,6 +8,7 @@ import './globals.css'
 import Navigation from '@/components/Header'
 import Hero from '@/components/Hero'
 import News from '@/components/News'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           <ClerkLoaded>
             <Navigation />
             {children}
+            <Footer />
           </ClerkLoaded>
         </body>
       </html>

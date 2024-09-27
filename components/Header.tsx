@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { Righteous } from "next/font/google";
-import { GoSun } from "react-icons/go";
 import { FaBars } from "react-icons/fa";
-import Image from 'next/image';
+import { GiWeightLiftingUp } from "react-icons/gi";
 import Link from 'next/link';
 import {
     ClerkLoaded,
@@ -14,7 +13,8 @@ import {
     SignedOut,
     UserButton
 } from '@clerk/nextjs';
-import { usePathname } from 'next/navigation'; // Import usePathname
+import { usePathname } from 'next/navigation';
+import ThemeToggle from './ThemeToggle';
 
 const righteous = Righteous({
     subsets: ['latin'],
@@ -32,15 +32,15 @@ export default function Header() {
     }, [pathname]); // Dependency array contains pathname
 
     const getLinkClasses = (path: string) =>
-        `text-black ${activePage === path ? 'text-pink-500 font-bold' : ''}`;
+        `text-black dark:text-white ${activePage === path ? 'text-pink-500 dark:text-pink-500 font-bold' : ''}`;
 
     return (
-        <header className="w-full bg-white flex items-center">
+        <header className="w-full bg-white dark:bg-slate-900 flex items-center">
             <div className="py-4 px-20 w-full">
                 <ul className="flex w-full justify-between items-center">
                     <li className="flex">
-                        <Image src="/flexfit.svg" alt="" width={25} height={25} />
-                        <Link href="/" className={`${righteous.className} text-3xl font-bold text-black`}>FlexFit</Link>
+                        <GiWeightLiftingUp className="text-4xl text-black dark:text-white" />
+                        <Link href="/" className={`${righteous.className} text-3xl font-bold text-black dark:text-white`}>FlexFit</Link>
                     </li>
                     <li className="hidden md:flex-grow md:flex md:justify-center md:gap-3">
                         <Link href="/" className={getLinkClasses('/')}>Hjem</Link>
@@ -49,9 +49,7 @@ export default function Header() {
                         <Link href="/booking" className={getLinkClasses('/booking')}>Booking</Link>
                     </li>
                     <li className="flex gap-5">
-                        <div className="items-center justify-center flex w-10 border-2 border-gray-200 rounded-xl hover:bg-gray-200 hover:bg-opacity-40">
-                            <GoSun color="black" className="text-2xl" />
-                        </div>
+                        <ThemeToggle />
                         <ClerkLoading>
                             loading...
                         </ClerkLoading>
@@ -60,7 +58,7 @@ export default function Header() {
                         <SignedOut>
                             <SignInButton mode="modal" signUpFallbackRedirectUrl="/">
                                 <div className="border-secondary border-2 px-4 py-2 rounded-2xl hover:bg-secondary hover:bg-opacity-40">
-                                    <h1 className="text-black cursor-pointer">Login</h1>
+                                    <h1 className="text-black cursor-pointer dark:text-white">Login</h1>
                                 </div>
                             </SignInButton>
                         </SignedOut>
