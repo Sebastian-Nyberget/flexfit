@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero" 
+import Membership from "@/components/Membership"
 import News from "@/components/News"
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <Hero />
       <News />
+      <Membership />
     </div>
   )
 }
