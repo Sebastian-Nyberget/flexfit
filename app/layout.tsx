@@ -27,8 +27,6 @@ export default function RootLayout({
         <body className={inter.className}>
           <ClerkLoaded>
             <Navigation />
-            <Hero />
-            <News />
             {children}
           </ClerkLoaded>
         </body>

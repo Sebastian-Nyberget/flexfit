@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Righteous } from "next/font/google";
 import { GoSun } from "react-icons/go";
 import { FaBars } from "react-icons/fa";
@@ -14,6 +14,7 @@ import {
     SignedOut,
     UserButton
 } from '@clerk/nextjs';
+import { usePathname } from 'next/navigation'; // Import usePathname
 
 const righteous = Righteous({
     subsets: ['latin'],
@@ -21,7 +22,17 @@ const righteous = Righteous({
 });
 
 export default function Header() {
+    const [activePage, setActivePage] = useState('');
     const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname(); // Use usePathname to get the current path
+
+    useEffect(() => {
+        // Set the active page when pathname changes
+        setActivePage(pathname);
+    }, [pathname]); // Dependency array contains pathname
+
+    const getLinkClasses = (path: string) =>
+        `text-black ${activePage === path ? 'text-pink-500 font-bold' : ''}`;
 
     return (
         <header className="w-full bg-white flex items-center">
@@ -32,10 +43,10 @@ export default function Header() {
                         <Link href="/" className={`${righteous.className} text-3xl font-bold text-black`}>FlexFit</Link>
                     </li>
                     <li className="hidden md:flex-grow md:flex md:justify-center md:gap-3">
-                        <Link href="/" className="text-black">Hjem</Link>
-                        <Link href="/om-oss" className="text-black">Om oss</Link>
-                        <Link href="/medlemskap" className="text-black">Medlemskap</Link>
-                        <Link href="/booking" className="text-black">Booking</Link>
+                        <Link href="/" className={getLinkClasses('/')}>Hjem</Link>
+                        <Link href="/om-oss" className={getLinkClasses('/om-oss')}>Om oss</Link>
+                        <Link href="/medlemskap" className={getLinkClasses('/medlemskap')}>Medlemskap</Link>
+                        <Link href="/booking" className={getLinkClasses('/booking')}>Booking</Link>
                     </li>
                     <li className="flex gap-5">
                         <div className="items-center justify-center flex w-10 border-2 border-gray-200 rounded-xl hover:bg-gray-200 hover:bg-opacity-40">
@@ -66,10 +77,10 @@ export default function Header() {
 
                 {menuOpen && (
                     <div className="md:hidden mt-4 flex flex-col gap-2 bg-gray-100 p-4 rounded-lg">
-                        <Link href="/" className="text-black">Hjem</Link>
-                        <Link href="/om-oss" className="text-black">Om oss</Link>
-                        <Link href="/medlemskap" className="text-black">Medlemskap</Link>
-                        <Link href="/booking" className="text-black">Booking</Link>
+                        <Link href="/" className={getLinkClasses('/')}>Hjem</Link>
+                        <Link href="/om-oss" className={getLinkClasses('/om-oss')}>Om oss</Link>
+                        <Link href="/medlemskap" className={getLinkClasses('/medlemskap')}>Medlemskap</Link>
+                        <Link href="/booking" className={getLinkClasses('/booking')}>Booking</Link>
                     </div>
                 )}
             </div>

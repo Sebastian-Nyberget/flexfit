@@ -11,7 +11,7 @@ const Hero = () => {
                 className='w-full'
             />
             <div className='absolute inset-0 container flex items-start justify-start mx-auto'>
-                <div className='p-4 gap-5 absolute mx-auto bottom-[20%]'>
+                <div className='p-4 gap-5 absolute mx-auto bottom-[20%] object-cover'>
                     <Image 
                         src="/flexfitw.svg"
                         width={200}
