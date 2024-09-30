@@ -18,7 +18,7 @@ const Hero = () => {
                         height={200}
                         alt=''
                     />
-                    <h1 className='text-6xl pb-5'>Din styrke, <br /> din vei</h1>
+                    <h1 className='text-6xl pb-5 text-white dark:text-black'>Din styrke, <br /> din vei</h1>
                     <div className='bg-white w-40 py-3 text-center border-2 border-secondary rounded-lg hover:bg-gray-300'>
                         <Link href="/" className="text-black">Kom i gang</Link>
                     </div>

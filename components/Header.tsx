@@ -24,12 +24,11 @@ const righteous = Righteous({
 export default function Header() {
     const [activePage, setActivePage] = useState('');
     const [menuOpen, setMenuOpen] = useState(false);
-    const pathname = usePathname(); // Use usePathname to get the current path
+    const pathname = usePathname();
 
     useEffect(() => {
-        // Set the active page when pathname changes
         setActivePage(pathname);
-    }, [pathname]); // Dependency array contains pathname
+    }, [pathname]);
 
     const getLinkClasses = (path: string) =>
         `text-black dark:text-white ${activePage === path ? 'text-pink-500 dark:text-pink-500 font-bold' : ''}`;
