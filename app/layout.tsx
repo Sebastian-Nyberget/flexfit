@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter, Righteous } from 'next/font/google'
-import './globals.css'
+
 import Navigation from '@/components/Header'
 import Footer from '@/components/Footer'
+
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

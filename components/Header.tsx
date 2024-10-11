@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
 import ThemeToggle from './ThemeToggle';
 
 const righteous = Righteous({
@@ -42,7 +43,7 @@ export default function Header() {
                     <li className="flex gap-5">
                         <ThemeToggle />
                         <div className="border-secondary border-2 px-4 py-2 rounded-2xl hover:bg-secondary hover:bg-opacity-40">
-                            <h1 className="text-black cursor-pointer dark:text-white">Login</h1>
+                            <Link href="/sign-in" className="text-black cursor-pointer dark:text-white">Login</Link>
                         </div>
                     </li>
                     <li className="md:hidden">
