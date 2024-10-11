@@ -1,7 +1,3 @@
-import {
-  ClerkLoaded,
-  ClerkProvider
-} from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Inter, Righteous } from 'next/font/google'
 import './globals.css'
@@ -21,16 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <ClerkLoaded>
             <Navigation />
             {children}
             <Footer />
-          </ClerkLoaded>
         </body>
       </html>
-    </ClerkProvider>
   )
 }
