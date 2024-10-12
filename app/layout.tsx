@@ -3,6 +3,7 @@ import { Inter, Righteous } from 'next/font/google'
 
 import Navigation from '@/components/Header'
 import Footer from '@/components/Footer'
+import { ThemeProvider } from "@/components/theme-provider"
 
 import './globals.css'
 
@@ -21,9 +22,11 @@ export default function RootLayout({
   return (
       <html lang="en">
         <body className={inter.className}>
+          <ThemeProvider attribute='class'>
             <Navigation />
             {children}
             <Footer />
+          </ThemeProvider>
         </body>
       </html>
   )
