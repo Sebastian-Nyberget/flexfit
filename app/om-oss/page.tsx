@@ -1,16 +1,9 @@
-import { redirect } from "next/navigation";
-
-import { getCurrent } from "@/features/auth/actions";
-import { UserButton } from "@/features/auth/components/user-button";
-
-export default async function About() {
-    const user = await getCurrent();
-
-    if (!user) redirect("/sign-in")
-
+const About = () => {
     return ( 
-       <div>
-         <UserButton />
-       </div>
+        <div className="w-full h-screen flex flex-col justify-center items-center bg-white">
+            <h1 className="text-black">Om oss</h1>
+        </div>
      );
 }
+ 
+export default About;
