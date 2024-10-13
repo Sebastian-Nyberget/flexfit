@@ -1,0 +1,6 @@
+export enum TaskType {
+  CROSSFIT = "CROSSFIT",
+  SPINNING = "SPINNING",
+  YOGA = "YOGA",
+  KAMPSPORT = "KAMPSPORT"
+};
