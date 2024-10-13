@@ -1,20 +1,22 @@
 "use client";
 
+import * as React from "react"
 import { useEffect, useState } from 'react';
 import { Righteous } from "next/font/google";
 import { FaBars } from "react-icons/fa";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import Link from 'next/link';
-import {
-    ClerkLoaded,
-    ClerkLoading,
-    SignInButton,
-    SignedIn,
-    SignedOut,
-    UserButton
-} from '@clerk/nextjs';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from './ThemeToggle';
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+
+import { Button } from "@/components/ui/button"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
 
 const righteous = Righteous({
     subsets: ['latin'],
@@ -22,9 +24,12 @@ const righteous = Righteous({
 });
 
 export default function Header() {
+    const { theme, setTheme } = useTheme()
     const [activePage, setActivePage] = useState('');
     const [menuOpen, setMenuOpen] = useState(false);
     const pathname = usePathname();
+
+    const SignedIn = pathname === "/sign-in";
 
     useEffect(() => {
         setActivePage(pathname);
@@ -48,22 +53,32 @@ export default function Header() {
                         <Link href="/booking" className={getLinkClasses('/booking')}>Booking</Link>
                     </li>
                     <li className="flex gap-5">
-                        <ThemeToggle />
-                        <ClerkLoading>
-                            loading...
-                        </ClerkLoading>
-                        <ClerkLoaded>
-                        </ClerkLoaded>
-                        <SignedOut>
-                            <SignInButton mode="modal" signUpFallbackRedirectUrl="/">
-                                <div className="border-secondary border-2 px-4 py-2 rounded-2xl hover:bg-secondary hover:bg-opacity-40">
-                                    <h1 className="text-black cursor-pointer dark:text-white">Login</h1>
-                                </div>
-                            </SignInButton>
-                        </SignedOut>
-                        <SignedIn>
-                            <UserButton />
-                        </SignedIn>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="outline" size="icon">
+                              {theme === 'dark' ? (
+                                <Moon className="h-[1.2rem] w-[1.2rem]" />
+                              ) : (
+                                <Sun className="h-[1.2rem] w-[1.2rem]" />
+                              )}
+                              <span className="sr-only">Toggle theme</span>
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem onClick={() => setTheme("light")}>
+                              Light
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => setTheme("dark")}>
+                              Dark
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                        
+                        <Button asChild variant={'secondary'} className="border-tertiary border-2 px-4 py-2 rounded-2xl hover:bg-tertiary hover:bg-opacity-40">
+                          <Link href={SignedIn ? "/sign-up" : "/sign-in"}>
+                            {SignedIn ? "Registrer deg" : "Login"}
+                          </Link>
+                        </Button>
                     </li>
                     <li className="md:hidden">
                         <button onClick={() => setMenuOpen(!menuOpen)}>
