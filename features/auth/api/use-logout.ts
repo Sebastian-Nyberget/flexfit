@@ -19,8 +19,7 @@ export const useLogout = () => {
         return await response.json();
       },
       onSuccess: () => {
-        router.refresh()
-        queryClient.invalidateQueries({ queryKey: ["current"] })
+        window.location.reload();
       }
     });
 
