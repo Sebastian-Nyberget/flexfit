@@ -9,7 +9,7 @@ const Page = () => {
         <p className='text-primary'>Priser</p>
         <h1 className="text-black dark:text-white text-4xl font-bold">Medlemskap</h1>
 
-        <Tabs className="flex flex-col justify-center items-center py-5">
+        <Tabs defaultValue="månedlig" className="flex flex-col justify-center items-center py-5">
           <TabsList className="flex justify-center grid-cols-2 w-[400px] py-6">
             <TabsTrigger value="månedlig">Månedlig Fakturering</TabsTrigger>
             <TabsTrigger value="årlig">Årlig Fakturering</TabsTrigger>

@@ -27,6 +27,9 @@ import {
 
 import { registerSchema } from '../schemas';
 import { useRegister } from '../api/use-register';
+import { signUpWithGoogle } from '@/lib/oauth';
+import { getCurrent } from '../actions';
+import { redirect } from 'next/navigation';
 
 export const SignUpCard = () => {
   const { mutate, isPending } = useRegister();
@@ -125,15 +128,16 @@ export const SignUpCard = () => {
             <Separator />
           </div>
           <CardContent className='p-7 flex flex-col gap-y-4'>
-            <Button
-              disabled={isPending} 
-              variant={'secondary'}
-              size="lg"
-              className='w-full'
-            >
-                <FcGoogle className='mr-2 size-5'/>
-                Login with Google
-            </Button>
+              <Button
+              onClick={() => signUpWithGoogle()}
+                disabled={isPending} 
+                variant={'secondary'}
+                size="lg"
+                className='w-full'
+              >
+                  <FcGoogle className='mr-2 size-5'/>
+                  Login with Google
+              </Button>
             <Button
               disabled={isPending} 
               variant={'secondary'}
