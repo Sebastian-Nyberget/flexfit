@@ -5,6 +5,7 @@ import Navigation from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from "@/components/theme-provider"
 import { QueryProvider } from '@/components/query-provider'
+import { Toaster } from "@/components/ui/toaster";
 
 import './globals.css'
 import { Query } from '@tanstack/react-query'
@@ -27,6 +28,7 @@ export default function RootLayout({
           <ThemeProvider attribute='class'>
             <QueryProvider>
               <Navigation />
+              <Toaster />
               {children} 
               <Footer />
             </QueryProvider>
