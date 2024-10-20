@@ -1,6 +1,6 @@
 # FlexFit
 
-Welcome to **FlexFit**, your ultimate fitness companion! This web application provides users with tools, resources, and a community to help achieve their fitness goals. Built with Next.js, TypeScript, and styled using Tailwind CSS, FlexFit offers a responsive and modern user experience.
+Welcome to **FlexFit**, your ultimate fitness companion! This web application provides users with tools and resources. Built with Next.js, TypeScript, and styled using Tailwind CSS, FlexFit offers a responsive and modern user experience.
 
 ## Table of Contents
 
@@ -11,7 +11,7 @@ Welcome to **FlexFit**, your ultimate fitness companion! This web application pr
 
 ## Features
 
-- **User Authentication**: Secure sign-up and login features.
+- **User Authentication**: Using hono, appwrite + zod for schemas for secure sign-up and login features.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 
 ## Technologies Used
@@ -19,6 +19,10 @@ Welcome to **FlexFit**, your ultimate fitness companion! This web application pr
 - [Next.js](https://nextjs.org/) - React framework for server-side rendering and static site generation.
 - [TypeScript](https://www.typescriptlang.org/) - A superset of JavaScript that adds static typing.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
+- [EmailJs](https://www.emailjs.com) - Send email directly from your code – no server side code required.
+- [ShadCn](https://ui.shadcn.com) - Component library
+- [Hono](https://hono.dev) - Web application framework
+- [Appwrite](https://appwrite.io) - Authentication, Databases, Functions, Storage, and Messaging to projects using the frameworks and languages of your choice.
 
 ## Getting Started
 
@@ -62,9 +66,8 @@ Make sure you have the following installed:
 
 ## Usage
 
-- Explore the various features of FlexFit, including workout plans and nutrition guides.
+- Explore the various features of FlexFit
 - Sign up or log in to access personalized content.
-- Join the community forum to interact with other fitness enthusiasts.
 
 ---
 
